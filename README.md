@@ -1,7 +1,7 @@
 # List of my web-scraping-projects
   Contact me on github for any issues.
 
-## zhihu
+## zhihu.com
 
 Zhihu is a Chinese question-and-answer website where questions are created, answered, edited and organized by the community of its users. 
 
