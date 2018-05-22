@@ -10,7 +10,7 @@ To solve this problem, one should apply for an account and login to view all pag
 
 # Folder Descriptions
 
-1.MISC
+1. MISC
   Some scripts to explore specific attributes of the website.
 2. Analysis
   Used for produce report after getting scraping results.
