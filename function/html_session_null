@@ -1,0 +1,30 @@
+#Similar to html_session_try but returns NULL instead of NA when all trials fail. Also remove added attributes.
+#html_session_null adds:
+#1.auto retry functionality using exponantial delay(2s,4s,8s,16s etc)
+#2.use tryCatch to create robust scraper, any network issues or error will not break the script. It's safe to run it in loops
+#3.keep track of unsuccessful request(including both error and warning).Conditions of failed requests are saved as attributes in function output
+
+html_session_null <- function(url,do_try=3,...){
+    library(rvest)
+    library(httr)
+    dots <- c(...)
+    #auto retry
+    my_session <- NULL
+    tried = 0
+    while(is.null(my_session) && tried <= do_try) {
+        tried <- tried + 1
+        tryCatch(
+            {
+                my_session <- suppressWarnings(html_session(url,dots))
+            },
+            error=function(cond){
+                my_message<-conditionMessage(cond)
+                message(my_message)
+                Sys.sleep(2^tried)
+                return(NULL)
+            }
+        )
+    }
+    #if all requests fail, return NULL.
+    return(my_session)
+}
