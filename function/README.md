@@ -9,4 +9,4 @@ All these functions are imported from this [repo](https://github.com/yusuzech/r-
 3. rotate_proxy.R
   Rotate a proxy table.
 4. html_session_null.R
-  Same functionality as html_session_try.R but returns null if all requests fail.
+  Same functionality as `html_session_try.R` but returns null if all requests fail.
