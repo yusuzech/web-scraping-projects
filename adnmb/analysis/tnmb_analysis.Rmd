@@ -1,0 +1,232 @@
+---
+title: "adnmb_activity_analysis"
+author: "Yifu Yan"
+date: "2018-3-30"
+output:
+  html_document: default
+---
+#A岛(ht<span>tp://adnmb.com)活跃度分析
+```{r setup,include = FALSE}
+#setup working directory
+knitr::opts_knit$set(root.dir = dirname(getwd()))
+x<-c("stringr","lubridate","tidyverse","DT")
+lapply(x, require, character.only = TRUE)
+
+```
+
+
+```{r "import data", message=FALSE, warning=FALSE, include=FALSE}
+#use latest user data for analysis ------
+#thread data
+filenames <- list.files("data/datatable/")
+file_time <- str_extract(filenames,"(?<=data_).+(?=.csv)")
+last_file <- filenames[match(max(file_time),file_time)]
+dataset_thread <- read_csv(str_c("data/datatable/",last_file),col_types = list("post_id" = "c",
+                                                                        "parent_thread" = "c"))
+last_thread_date <- ymd(file_time)
+#thread metadata ------------------
+filenames <- list.files("data/merged_meta/")
+file_time <- str_extract(filenames,"(?<=meta_).+(?=.csv)")
+last_file <- filenames[match(max(file_time),file_time)]
+dataset_meta <- read_csv(str_c("data/merged_meta/",last_file),col_types = list("header_id" = "c",
+                                                                        "last_reply_id" = "c"))
+meta_add_date <- dataset_meta %>%
+    dplyr::filter((header_post_time >= last_thread_date - months(1)) & (header_post_time <= last_thread_date)) %>%
+    mutate(day = day(header_post_time),
+           month = as.integer(month(header_post_time)),
+           year = year(header_post_time),
+           weekdays = weekdays(header_post_time,abbreviate = T),
+           week = as.integer(week(header_post_time)),
+           minute = minute(header_post_time),
+           hour = hour(header_post_time),
+           date = ymd(str_c(year,"-",month,"-",day)))
+
+last_thread_date <- ymd(file_time)
+
+# merge tables ---------
+dataset_thread <- dataset_thread %>% 
+    left_join(dataset_meta %>% select(header_id,channel_name),by = c("parent_thread"="header_id"))
+
+ #active users by time for last month-------------
+dataset_add_dates <- dataset_thread %>%
+    dplyr::filter((post_time >= last_thread_date - months(1)) & (post_time <= last_thread_date)) %>%
+    mutate(day = day(post_time),
+           month = as.integer(month(post_time)),
+           year = year(post_time),
+           weekdays = weekdays(post_time,abbreviate = T),
+           week = as.integer(week(post_time)),
+           minute = minute(post_time),
+           hour = hour(post_time),
+           date = ymd(str_c(year,"-",month,"-",day)))
+```
+
+```{r "server down time", include=FALSE}
+#server downtime---------
+time_intervals <- interval(dplyr::lag(sort(dataset_add_dates$post_time)),sort(dataset_add_dates$post_time))
+time_span <- time_intervals[2:length(time_intervals)]/hours(1)
+flag_no_down_time <- !all(time_span > 3)
+if(flag_no_down_time){
+    down_intervals <- 0
+    down_times <- 0
+    down_dates <- 0
+    all_downs <- 0
+} else {
+    down_intervals <- time_intervals[which(time_span > 3)+1]
+#down hours
+down_times <- down_intervals/hours(1)
+#down_time_specific used for other calculations
+down_dates <- attributes(down_intervals)$start + hours(1:round(down_times))
+source("analysis/bind_dates_in_list.R")
+all_downs <- bind_dates_in_list(map2(attributes(down_intervals)$start,round(down_times),~ .x + hours(1:.y)))
+downs_table <- tibble(down_pox = all_downs,
+                      year = year(down_pox),
+                      month = as.integer(month(down_pox)),
+                      week = as.integer(week(down_pox)),
+                      day = day(down_pox),
+                      hour = hour(down_pox),
+                      minute = minute(down_pox),
+                      weekdays = weekdays(down_pox))
+}
+```
+
+```{r "calculate totals", include=FALSE}
+#totals -----------
+#report period
+#total newthreads
+ttl0 <- nrow(meta_add_date)
+#total new posts
+ttl1 <- nrow(dataset_add_dates)
+#total active users(count by unique post_uid)
+ttl2 <- length(unique(dataset_add_dates$post_uid))
+#post per active user
+ttl3 <- length(unique(dataset_add_dates$post_id))/length(unique(dataset_add_dates$post_uid))
+if (flag_no_down_time){
+    ttl4 <- 0
+    ttl5 <- 0
+} else {
+    #Down time
+ttl4 <- down_intervals
+#total down length in hours
+ttl5 <- sum(round(down_intervals/hours(1)))
+}
+#average thread length-------
+ttl6 <- dataset_add_dates %>% group_by(parent_thread) %>% 
+    count() %>% ungroup() %>% summarise(avg = mean(n)) %>% 
+    pull() %>% round(2)
+rm(time_intervals,time_span,down_intervals,down_times,down_dates,all_downs)
+```
+
+## 1.总体概况
+本报告的统计区间为：`r last_thread_date-months(1)` 至 `r last_thread_date`。  
+期间内，A岛在共爆炸了**`r ttl5`**小时，爆炸时间如下：`r str_sub(str_c(ttl4," 和"),end = -3)`。  
+期间内，总新串数为：**`r ttl0`**，总回复数为：**`r ttl1`**,总活跃用户（按饼干计）数为：**`r ttl2`**,平均用户回复数：**`r round(ttl3,2)`**,平均串长为：**`r ttl6`**。
+### 回复
+
+下图分别为本月每日回复数；每小时回复数和每周日均回复数
+
+```{r echo=FALSE}
+source("functions/multiplot.R")
+p1 <- dataset_add_dates %>%
+    group_by(date) %>%
+    count() %>%
+    ungroup() %>%
+    ggplot(aes(x = date,y = n)) +
+    geom_col(fill = "skyblue3") +
+    labs(x = "Date",y = "Average Post")  +
+    theme_light()
+p2 <- dataset_add_dates %>%
+    group_by(weekdays) %>%
+    mutate(weekdays_on = n_distinct(week)) %>%
+    summarise(avg_post = round(n()/first(weekdays_on))) %>%
+    ungroup() %>%
+    mutate(weekdays = factor(weekdays,levels = c("Mon","Tue","Wed","Thu","Fri","Sat","Sun"))) %>%
+    ggplot(aes(x = weekdays,y = avg_post)) +
+    geom_col(fill = "skyblue3") + 
+    theme_light() +
+    labs(x = "", y = "Average Post Daily")
+p3 <- dataset_add_dates %>%
+    group_by(hour) %>%
+    mutate(hours_on = n_distinct(day)) %>%
+    summarise(avg_post = round(n()/first(hours_on))) %>%
+    ungroup() %>%
+    ggplot(aes(x = hour,y = avg_post)) +
+    geom_col(fill = "skyblue3") + 
+    theme_light() +
+    labs(x = "", y = "Average Post Hourly")
+p0 <- multiplot(p1,p2,p3,cols = 2)
+```
+
+## 本月新串排名
+
+### TOP100
+```{r echo=FALSE}
+dataset_add_dates %>%
+    group_by(parent_thread) %>%
+    summarise(total_post = n(),channel_name = first(channel_name)) %>%
+    ungroup() %>%
+    mutate(rank = min_rank(desc(total_post))) %>%
+    arrange(rank) %>%
+    dplyr::filter(rank <= 100) %>%
+    left_join(dataset_meta %>% select(header_id,header_content),c("parent_thread"="header_id")) %>%
+    mutate(content = str_sub(header_content,start = 1,end = 20)) %>%
+    select(-header_content) %>% 
+    mutate(link = str_c("http://adnmb.com/t/",parent_thread),total_post = round(total_post,-1)) %>%
+    DT::datatable(colnames = c("串号","回复数","频道","排名","内容","链接"))
+```
+
+### 分区概况
+```{r echo=FALSE}
+dataset_add_dates %>%
+    group_by(channel_name) %>%
+    summarise(total_post = n(),total_thread = n_distinct(parent_thread)) %>%
+    ungroup() %>% 
+    mutate(avg_post_thread = total_post/total_thread) %>%
+    mutate(total_post = round(total_post,-1),avg_post_thread = round(avg_post_thread)) %>%
+    arrange(desc(total_post)) %>%
+    DT::datatable(colnames = c("频道","总回复","总串数","每串平均回复"))
+```
+
+
+### 分区仪表盘(in progress)
+```{r echo=FALSE}
+#external link to dashboard: sample below
+#filter
+all_channels <- unique(dataset_meta$channel_name)
+selected_channel <- "欢乐恶搞"
+filtered_dataset <- dataset_add_dates %>% dplyr::filter(channel_name ==selected_channel)
+fp1 <- filtered_dataset %>%
+    group_by(date) %>%
+    count() %>%
+    ungroup() %>%
+    ggplot(aes(x = date,y = n)) +
+    geom_col(fill = "skyblue3") +
+    labs(x = "Date",y = "Average Post")  +
+    theme_light()
+fp2 <- filtered_dataset %>%
+    group_by(weekdays) %>%
+    mutate(weekdays_on = n_distinct(week)) %>%
+    summarise(avg_post = round(n()/first(weekdays_on))) %>%
+    ungroup() %>%
+    mutate(weekdays = factor(weekdays,levels = c("Mon","Tue","Wed","Thu","Fri","Sat","Sun"))) %>%
+    ggplot(aes(x = weekdays,y = avg_post)) +
+    geom_col(fill = "skyblue3") + 
+    theme_light() +
+    labs(x = "", y = "Average Post Daily")
+fp3 <- filtered_dataset %>%
+    group_by(hour) %>%
+    mutate(hours_on = n_distinct(day)) %>%
+    summarise(avg_post = round(n()/first(hours_on))) %>%
+    ungroup() %>%
+    ggplot(aes(x = hour,y = avg_post)) +
+    geom_col(fill = "skyblue3") + 
+    theme_light() +
+    labs(x = "", y = "Average Post Hourly")
+```
+
+#### `r selected_channel`
+
+```{r echo=FALSE}
+fp0 <- multiplot(fp1,fp2,fp3,cols = 2)
+```
+
+
