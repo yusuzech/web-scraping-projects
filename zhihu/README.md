@@ -62,6 +62,7 @@ The general idea is: give any user_token, The script can scrape the user's infor
 
 1. When doing auto-retries, ensure consistancy(not only make scripts work but also make them look good).
 2. When debuging, make debug codes look good(make them work is not good enough).
+3. Use gmail api to send me email to report process and errors
 
 ## Conclusion
 
