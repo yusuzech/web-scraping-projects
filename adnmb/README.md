@@ -9,15 +9,16 @@ Currently, adnmb tried to protect its website from being scraped and only allow 
 To solve this problem, one should apply for an account and login to view all pages.
 
 # Folder Descriptions
-## MISC
+
+1.MISC
   Some scripts to explore specific attributes of the website.
-## Analysis
+2. Analysis
   Used for produce report after getting scraping results.
-## debug
+3. debug
   Scripts used for debugging
-## functions
+4. functions
   Helpful functions used in other scripts
-## scrape
+5. scrape
   scripts used for scraping the website.
   run `scrape/work.R` to run all other scraping scripts.
   
