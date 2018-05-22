@@ -17,7 +17,7 @@ The general idea is: give any user_token, The script can scrape the user's infor
   Given a user token, returns all users that user is following. 
 
 3. working.R
-  Combine other scripts together: scrape and store in SQLite database.
+  Combine other scripts together: scrape and store results in SQLite database. Current code in this file use the topic "bitcoin" as a start. just change the topic id, database names and variable names, it works for any other topic.
 
 4. get topic.R
   Given a topic id, returns questions, answers and related user information in a table. It is used as intial input to get users related to the topic.
@@ -26,7 +26,6 @@ The general idea is: give any user_token, The script can scrape the user's infor
   This function is build upon get_user_info_json.R and adds auto-retry feature. Whenever scraper failed to extract information from a user.
 
 6. db_remove_duplicate.R
-
 
    Web-scraping database is different from normal one. For the sake of speed, it's better to just append new observations to database. But it creates duplications as we can scrape a user multiple times if that user appears multiple times. So after scraping, we need to remove all duplicates.
 
