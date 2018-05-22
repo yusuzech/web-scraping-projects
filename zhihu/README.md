@@ -51,21 +51,21 @@ The general idea is: give any user_token, The script can scrape the user's infor
 
 ## Takeaway from this Projects
 
-
-
 1. Prepare for network issues
 2. Prepare for non-network failures, returns are different, other part of codes may fail.
 3. Ensure consitancy all the times, while encoutering issues, fixing  them on the spot may be a quick way. But too many quick fixings like that makes it very hard to deug.
 4. Prepare for network issues is easy. The hard part is to deal with unpredictable results brought by network issues.
+
 
 ## Improvement to be Made
 
 1. When doing auto-retries, ensure consistancy(not only make scripts work but also make them look good).
 2. When debuging, make debug codes look good(make them work is not good enough).
 3. Use gmail api to send me email to report process and errors
+5. Parallel requests and make it much faster. Currently it takes 1~2 seconds for each request.
 
 ## Conclusion
 
-Though the scripts have some minor issues, they work robustly. I ran it to get 10,000 users'  information and their 300,000 followee without encoutering any error or breaks in the loop. 
+Though the scripts have some minor issues, they work robustly. I ran it to get 10,000 users'  information and their 400,000 followee without encoutering any errors.
 
 If you have are any issues, feel free to contact me on github. 
