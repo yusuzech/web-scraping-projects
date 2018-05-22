@@ -49,7 +49,7 @@ The general idea is: give any user_token, The script can scrape the user's infor
 3. If all auto-retries failed, information of those failures are not recorded. I attemped to capture and save all failures but it failed somehow.
 4. I used proxy with the while scraping, but it will throw an error if proxy is not provided. This problem is not fixed yet.(It's still strongly recommended to use proxy)
 
-## Takeaway from this Projects
+## Takeaway from this Project
 
 1. Prepare for network issues
 2. Prepare for non-network failures, returns are different, other part of codes may fail.
