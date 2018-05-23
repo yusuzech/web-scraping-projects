@@ -46,7 +46,7 @@ The general idea is: give any user_token, The script can scrape the user's infor
 
 1. Scriptes vulnarable to changes in zhihu's hidden api.
 3. If all auto-retries failed, information of those failures are not recorded. I attemped to capture and save all failures but it failed somehow.
-4. I used proxy with the while scraping, but it will throw an error if proxy is not provided. This problem is not fixed yet.(It's still strongly recommended to use proxy)
+4. I used proxy with the while scraping, but it will throw an error if proxy is not provided. This problem is not fixed yet.(It's still strongly recommended to use proxy)  
 5.Because the 25 proxies I used fall into a same ip range. After sending 600,000 requests in a day, it was considered umhanme by zhihu server and got blocked. It is better to use more proxy in a wider ip range.
 
 ![user_token](www/unhuman.PNG)
