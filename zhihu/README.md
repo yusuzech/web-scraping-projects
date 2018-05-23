@@ -32,6 +32,10 @@ The general idea is: give any user_token, The script can scrape the user's infor
 7. write_2_db.R
 
    write scraping results to local SQLite database.
+   
+8. data
+
+  Structure of database can be seen in data folder.
 
 ## Features
 
