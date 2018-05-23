@@ -10,3 +10,4 @@ db_remove_duplicate <- function(con,table_name,table_id){
         ungroup()
     dbWriteTable(con,table_name,out,overwrite=T)
 }
+
