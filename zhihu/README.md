@@ -49,6 +49,8 @@ The general idea is: give any user_token, The script can scrape the user's infor
 4. I used proxy with the while scraping, but it will throw an error if proxy is not provided. This problem is not fixed yet.(It's still strongly recommended to use proxy)
 5.Because the 25 proxies I used fall into a same ip range. After sending 600,000 requests in a day, it was considered umhanme by zhihu server and got blocked. It is better to use more proxy in a wider ip range.
 
+![user_token](www/unhuman.PNG)
+
 ## Takeaway from this Project
 
 1. Prepare for network issues
