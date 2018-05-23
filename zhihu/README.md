@@ -59,6 +59,7 @@ The general idea is: give any user_token, The script can scrape the user's infor
 4. Prepare for network issues is easy. The hard part is to deal with unpredictable results brought by network issues.
 5. Not only just skip failed request but also record them. So we can categorize them and write better exception handling method.
 6. Don't assign values in functions globally, it's a dirty way and it may fail. When doing error handling, after printing error message just return NULL or NA. Check for NULL or NA and doing record them outside the function.
+7. Don't be greedy, reduce the request frequency and Wait longer for the results instead of being blocked.
 
 
 ## Improvement to be Made
