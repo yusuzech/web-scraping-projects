@@ -1,10 +1,10 @@
 zhihu.db is where all the scraping results are stored.
 
-Structure of database(Becasue the web-scraping started from bitcoin topic, so all tables are named bitcoin):
+# Structure of database:
 
-Top rows of each table are shown below:
+(Becasue the web-scraping started from bitcoin topic, so all tables are named bitcoin)
 
-# topic_bitcoin
+## topic_bitcoin
 
 **Where evertything starts, choose a topic and scrape related aiticles/questions/answers:**
 
@@ -18,7 +18,7 @@ Top rows of each table are shown below:
 | 6         | 49100704_397884584  | 49100704  | 397884584    | answer | 比特币交易平台哪个最靠谱？              | /question/49100704/answer/397884584  | zui-li-lun-dao-xing-shi-zhe-hua-19 | 醉里论道醒时折花      | //www.zhihu.com/people/zui-li-lun-dao-xing-shi-zhe-hua-19 | 5           | 2018/5/21 | 
 
 
-# user_detail_bitcoin
+## user_detail_bitcoin
 
 **Detailed information of users, including how many lives they held/attended, how many upvotes they have. Also include information like their job/education/company/location and etc.**
 
@@ -33,7 +33,7 @@ Top rows of each table are shown below:
 
 
 
-# user_following_bitcoin
+## user_following_bitcoin
 
 **Simple version of user information: only include their follower count, anser count etc. Information like job/education not indcluded**
 
@@ -47,9 +47,9 @@ Top rows of each table are shown below:
 | 6           | 5             | 39        | https://pic3.zhimg.com/v2-9494a76c1ae2ee921a85dc4d6dc94508_is.jpg | https://pic3.zhimg.com/v2-9494a76c1ae2ee921a85dc4d6dc94508_{size}.jpg | list()        | 1167   | -1       | 区块链普及者。v:wudatou00       | cfdebe7ab2816f23a7c1379f8bc06a66 | 0          | 0           | 0     | 0    | 大头      | people | http://www.zhihu.com/api/v4/people/cfdebe7ab2816f23a7c1379f8bc06a66 | hui-ren-bu-juan-98 | people      | 2018/5/21 | 
 
 
-# follower_following_bitcoin
+## follower_following_bitcoin
 
-A two-column table, displays the relationship between users. Useful for uesr relationship analysis.
+**A two-column table, displays the relationship between users. Useful for uesr relationship analysis.**
 
 | | follower | following        | |
 |----------|-----------|-------|---------------| 
