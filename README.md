@@ -25,3 +25,10 @@ Those functions help in :
 * rotate proxy/ip
 * auto-retry failed requests
 * store all failed requests and retry them after all other tasks are completed
+
+## Utility
+
+Utility functions/scripts such as:  
+
+* Send gmail for: periodic reports, errors and failures etc.
+
