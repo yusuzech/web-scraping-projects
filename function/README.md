@@ -10,5 +10,5 @@ All these functions are imported from this [repo](https://github.com/yusuzech/r-
   Rotate a proxy table.
 4. html_session_null.R  
   Same functionality as html_session_try.R but returns null if all requests fail.
-5. retry_later.R
+5. retry_later.R  
   Instead of retry request immediately after failure, this template allow retry after completing all other requests.
