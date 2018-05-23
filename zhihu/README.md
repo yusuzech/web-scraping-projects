@@ -47,7 +47,7 @@ The general idea is: give any user_token, The script can scrape the user's infor
 1. Scriptes vulnarable to changes in zhihu's hidden api.
 3. If all auto-retries failed, information of those failures are not recorded. I attemped to capture and save all failures but it failed somehow.
 4. I used proxy with the while scraping, but it will throw an error if proxy is not provided. This problem is not fixed yet.(It's still strongly recommended to use proxy)  
-5.Because the 25 proxies I used fall into a same ip range. After sending 600,000 requests in a day, it was considered umhanme by zhihu server and got blocked. It is better to use more proxy in a wider ip range.
+5.Because the 25 proxies I used fall into a same ip range. After sending about 100,000 requests in a day, it was considered umhanme by zhihu server and got blocked. It is better to use more proxy in a wider ip range.
 
 ![user_token](www/unhuman.PNG)
 
@@ -67,10 +67,16 @@ The general idea is: give any user_token, The script can scrape the user's infor
 1. When doing auto-retries, ensure consistancy(not only make scripts work but also make them look good).
 2. When debuging, make debug codes look good(make them work is not good enough).
 3. Use gmail api to send me email to report process and errors
-5. Parallel requests and make it much faster. Currently it takes 1~2 seconds for each request.
+5. Parallel requests and make it much faster with more ips. Currently it takes 1~2 seconds for each request.
 
 ## Conclusion
 
-Though the scripts have some minor issues, they work robustly. I ran it to get 10,000 users'  information and their 400,000 followee without encoutering any errors.
+Though the scripts have some minor issues, they work robustly. I ran it to get 2,000 users' detailed information and their 500,000 followee's basic information without encoutering any errors. Though it was blocked then, this issue could be easily solve by using more proxies in a wider range.
+
+After this project, more ideas come to my mind. I could add more features to my future web-scraping projects:  
+
+1. Count continuous failures of each proxy, if any proxy fails too many times in a role, identify them as blocked and don't use them.
+2. Add global scraping speed control parameter, slow down if encoutered many failures and speed up if fail rate decreases.
+3. Evaluate scraping error rate by counting fail rate per 100 or 1000 request and adjust scraping strategy accordingly.
 
 If you have are any issues, feel free to contact me on github. 
