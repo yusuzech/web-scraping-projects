@@ -121,7 +121,7 @@ user_list1 <- user_following1 %>%
 #don't repeat --------
 user_list1 <- user_list1[!(user_list1 %in% user_list)]
 
-for(user in user_list1[223:length(223)]){
+for(user in user_list1[1700:10000]){
     text_start <- glue::glue("{user_count} of {length_total} users: {user} start:-----------------",
                              user_count = match(user,user_list1),
                              length_total=length(user_list1))
@@ -137,8 +137,8 @@ for(user in user_list1[223:length(223)]){
         mutate(following=urlToken) %>%
         mutate(follower=user) %>%
         select(follower,following)
-    write_2_db(x = follower_following,db_path = "zhihu/data/zhihu.db",table_name="follower_following_bitcoin")
-    write_2_db(x = current_follow_tb,db_path = "zhihu/data/zhihu.db",table_name = "user_following_bitcoin")
+    try(write_2_db(x = follower_following,db_path = "zhihu/data/zhihu.db",table_name="follower_following_bitcoin"))
+    try(write_2_db(x = current_follow_tb,db_path = "zhihu/data/zhihu.db",table_name = "user_following_bitcoin"))
     
     text_end <- glue::glue("{user_count} of {length_total} users: {user} end:---------------------",
                            user_count = match(user,user_list1),
