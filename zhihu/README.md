@@ -75,7 +75,7 @@ Though the scripts have some minor issues, they work robustly. I ran it to get 2
 
 After this project, more ideas come to my mind. I could add more features to my future web-scraping projects:  
 
-1. Count continuous failures of each proxy, if any proxy fails too many times in a role, identify them as blocked and don't use them.
+1. Count consecutive failures of each proxy, if any proxy fails too many times in a role, identify them as blocked and don't use them.
 2. Add global scraping speed control parameter, slow down if encoutered many failures and speed up if fail rate decreases.
 3. Evaluate scraping error rate by counting fail rate per 100 or 1000 request and adjust scraping strategy accordingly.
 
