@@ -1,5 +1,4 @@
 # List of my web-scraping-projects
-  Contact me on github for any issues.
 
 ## [zhihu.com](https://www.zhihu.com)
 
