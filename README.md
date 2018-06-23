@@ -1,5 +1,14 @@
 # List of my web-scraping-projects
 
+## [bilibili.com](https://www.bilibili.com/)
+
+Bilibili is the biggest video sharing website themed around animation, comic, and game (ACG) in China with more than 80 million registered users.
+
+**Project Description**:    
+This project build a scraper which can scrape the danmaku(also known as bullet comments or live comments) given a video id(aid/av_number) in Bilibili.
+
+在本项目中，本人制作了一个脚本，当给定bilibili视频的av号后，脚本将返回对应视频的所有弹幕，详情请见文件夹。
+
 ## [zhihu.com](https://www.zhihu.com)
 
 Zhihu(知乎) is a Chinese question-and-answer website where questions are created, answered, edited and organized by the community of its users. 
