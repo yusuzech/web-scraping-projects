@@ -27,7 +27,7 @@ Zhihu(知乎) is a Chinese question-and-answer website where questions are creat
 **Project Description**:  
 This project scrapes zhihu's user data and following-follower data. The workflow is to give a topic to start with. It will first get top n related answers or questions and get all these users' information. After that, it can scrape for more following/follower's information recursively.
 
-知乎爬虫/数据获取，给定一个知乎话题，自动获取话题下相关问题，回答和用户信息，以此获取对应用户的关注者与被关注者信息。
+知乎爬虫/数据获取脚本，给定一个知乎话题，自动获取话题下相关问题，回答和用户信息，以此获取对应用户的关注者与被关注者信息。
 
 ## [adnmb.com](http://adnmb.com) thread data collection
 
