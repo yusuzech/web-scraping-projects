@@ -6,8 +6,8 @@ For details of each project, please see them in the folder under this repository
 
 Niconico(ニコニコ) is one of the most popular Japanese video sharing service on the web with live commenting(danmaku) feature.
 
-**Project Description**
-This projuct build a script to automatically collect danmaku given a video id.
+**Project Description:**  
+This projuct build a script to automatically collect corresponding danmaku given a video id.
 
 ## [bilibili.com](https://www.bilibili.com/)
 
