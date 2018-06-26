@@ -9,7 +9,7 @@ get_danmaku <- function(video_id,only_danmaku_text = T){
     #current_agent <- random_agent()
     response_video <- GET(video_link
                           #current_agent
-                          )
+    )
     api_json <- content(response_video) %>%
         html_node("#js-initial-watch-data") %>%
         html_attr("data-api-data") %>%
