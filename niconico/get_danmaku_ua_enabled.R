@@ -2,14 +2,12 @@ library(rvest)
 library(httr)
 library(stringr)
 library(jsonlite)
-#source("function/random_agent.R")  # uncomment this line and line 9,11,27 to enable user agent
+source("function/random_agent.R")  
 
 get_danmaku <- function(video_id,only_danmaku_text = T){
     video_link <- str_c("http://www.nicovideo.jp/watch/sm",video_id)
-    #current_agent <- random_agent()
-    response_video <- GET(video_link
-                          #current_agent
-    )
+    current_agent <- random_agent()
+    response_video <- GET(video_link,current_agent)
     api_json <- content(response_video) %>%
         html_node("#js-initial-watch-data") %>%
         html_attr("data-api-data") %>%
@@ -24,7 +22,7 @@ get_danmaku <- function(video_id,only_danmaku_text = T){
     request_body <- str_replace_all(request_body_unfilled,pattern = fixed("my_thread_id"),replacement = thread_id)
     response <- POST(danmaku_api_url,
                      add_headers(Referer=video_link),
-                     #current_agent,
+                     current_agent,
                      body = request_body,
                      encode = "raw")
     
