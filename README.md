@@ -2,7 +2,7 @@
 
 For details of each project, please see them in the folder under this repository. Contact me with my email listed on github if you have any issues.
 
-## [niconico.jp](http://www.nicovideo.jp/) danmaku extraction
+## [niconico.jp](http://www.nicovideo.jp/) danmaku auto collection
 
 Niconico(ニコニコ) is one of the most popular Japanese video sharing service on the web with live commenting(danmaku) feature.
 
@@ -11,14 +11,14 @@ In this project, I build a script to automatically collect corresponding danmaku
 
 ニコニコ弾幕Webスクレイピング.
 
-## [bilibili.com](https://www.bilibili.com/) danmaku extraction
+## [bilibili.com](https://www.bilibili.com/) danmaku auto collection
 
 Bilibili is the biggest video sharing website themed around animation, comic, and game (ACG) in China with more than 80 million registered users.
 
 **Project Description**:    
 In this project, I build a script which can scrape the danmaku(also known as bullet comments or live comments) given a video id(aid/av_number).
 
-bilili弹幕数据获取：给定bilibili视频的av号，脚本将返回对应视频的所有弹幕，详情请见文件夹。
+bilili弹幕数据获取脚本/爬虫：给定bilibili视频的av号，脚本将返回对应视频的所有弹幕，详情请见文件夹。
 
 ## [zhihu.com](https://www.zhihu.com) follower/followee data scraping
 
