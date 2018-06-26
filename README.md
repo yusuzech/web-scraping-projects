@@ -1,11 +1,20 @@
-# List of my web-scraping-projects
+# List of web-scraping projects
+
+For details of each project, please see them in the folder under this repository. Contact me with my email listed on github if you have any issues.
+
+## [niconico.jp](http://www.nicovideo.jp/)
+
+Niconico(ニコニコ) is one of the most popular Japanese video sharing service on the web with live commenting(danmaku) feature.
+
+**Project Description**
+This projuct build a script to automatically collect danmaku given a video id.
 
 ## [bilibili.com](https://www.bilibili.com/)
 
 Bilibili is the biggest video sharing website themed around animation, comic, and game (ACG) in China with more than 80 million registered users.
 
 **Project Description**:    
-This project build a scraper which can scrape the danmaku(also known as bullet comments or live comments) given a video id(aid/av_number) in Bilibili.
+This project build a script which can scrape the danmaku(also known as bullet comments or live comments) given a video id(aid/av_number) in Bilibili.
 
 在本项目中，本人制作了一个脚本，当给定bilibili视频的av号后，脚本将返回对应视频的所有弹幕，详情请见文件夹。
 
