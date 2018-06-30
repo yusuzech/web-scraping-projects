@@ -2,37 +2,41 @@
 
 For details of each project, please see them in the folder under this repository. Contact me with my email listed on github if you have any issues.
 
-## [niconico.jp](http://www.nicovideo.jp/)
+## [niconico.jp](http://www.nicovideo.jp/) danmaku auto collection
 
 Niconico(ニコニコ) is one of the most popular Japanese video sharing service on the web with live commenting(danmaku) feature.
 
 **Project Description:**  
-This projuct build a script to automatically collect corresponding danmaku given a video id.
+In this project, I build a script to automatically collect corresponding danmaku given a video id.
 
-## [bilibili.com](https://www.bilibili.com/)
+ニコニコ弾幕Webスクレイピング.
+
+## [bilibili.com](https://www.bilibili.com/) danmaku auto collection
 
 Bilibili is the biggest video sharing website themed around animation, comic, and game (ACG) in China with more than 80 million registered users.
 
 **Project Description**:    
-This project build a script which can scrape the danmaku(also known as bullet comments or live comments) given a video id(aid/av_number) in Bilibili.
+In this project, I build a script which can scrape the danmaku(also known as bullet comments or live comments) given a video id(aid/av_number).
 
-在本项目中，本人制作了一个脚本，当给定bilibili视频的av号后，脚本将返回对应视频的所有弹幕，详情请见文件夹。
+bilili弹幕数据获取脚本/爬虫：给定bilibili视频的av号，脚本将返回对应视频的所有弹幕，详情请见文件夹。
 
-## [zhihu.com](https://www.zhihu.com)
+## [zhihu.com](https://www.zhihu.com) follower/followee data scraping
 
 Zhihu(知乎) is a Chinese question-and-answer website where questions are created, answered, edited and organized by the community of its users. 
 
 **Project Description**:  
 This project scrapes zhihu's user data and following-follower data. The workflow is to give a topic to start with. It will first get top n related answers or questions and get all these users' information. After that, it can scrape for more following/follower's information recursively.
 
+知乎爬虫/数据获取脚本，给定一个知乎话题，自动获取话题下相关问题，回答和用户信息，以此获取对应用户的关注者与被关注者信息。
 
-## [adnmb.com](http://adnmb.com)
+## [adnmb.com](http://adnmb.com) thread data collection
 
 adnmb(A岛) is a 4-chan/2ch-like anonymous forum(anonymous to other users, require registration to post) with heathlier content. Though it's small forum, it actually leads in creating new content for Chinese websites. Many memes created in adnmb are used months or years later by the general public in China.
 
 **Project Description**:   
 The projects scrape adnmb's all thread content in most recent month. It also generates report automatically. The forum manager is aware of web crawlers.So without registration(with phone number), anonymous users are only allows access to at most 100 page in each thread and each section.
 
+A岛爬虫/串内信息获取， 运行后将自动获取近一个月内所有串内的信息。
 
 ## function
 

@@ -5,7 +5,7 @@ Given a video aid/av_number, the script will return all corresponding danmaku in
 
 # How to use
 
-run or source the following [script](https://github.com/yusuzech/web-scraping-projects/blob/master/bilibili/get_danmaku.R)
+### 1. run or source the following [script](https://github.com/yusuzech/web-scraping-projects/blob/master/bilibili/get_danmaku.R)
 
 ```r
 library(rvest)
@@ -38,7 +38,7 @@ get_danmaku <- function(avid){
 }
 ```
 
-Then run the function:
+### 2.Then run the function:
 
 video link: https://www.bilibili.com/video/av789232
 ```r
