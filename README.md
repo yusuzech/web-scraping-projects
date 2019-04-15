@@ -3,8 +3,7 @@
 For details of each project, please see them in the folder under this repository. Contact me with my email listed on github if you have any issues.
 
 ## Scrapy Projects
-[I'm an inline-style link](https://www.google.com)
-### [bilibili.com Video Information Crawler](https://github.com/yusuzech/web-scraping-projects/Scrapy Projects/bilibili/README.md)
+### [bilibili.com Video Information Crawler](https://github.com/yusuzech/web-scraping-projects/tree/master/R%20Projects/adnmb)
 Project Description:
 Given a key word, get all relevant information(video, danmaku and comments) using [search.bilibili.com](https://search.bilibili.com/).
 
