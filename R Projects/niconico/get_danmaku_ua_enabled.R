@@ -27,7 +27,7 @@ get_danmaku <- function(video_id,only_danmaku_text = T){
                      encode = "raw")
     
     #get danmaku table
-    danmaku_table <- content(response,type = "text") %>%
+    c <- content(response,type = "text") %>%
         fromJSON()
     
     #get danmaku text

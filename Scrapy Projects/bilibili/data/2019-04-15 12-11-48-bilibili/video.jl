@@ -1,0 +1,9 @@
+{"aid": 49094480, "coin": 81, "video_copyright": 1, "danmaku": 360, "dislike": 0, "favorite": 96, "his_rank": 0, "like": 571, "no_reprint": 1, "now_rank": 0, "reply": 1414, "share": 282, "view": 90050}
+{"aid": 49196114, "coin": 3749, "video_copyright": 1, "danmaku": 17051, "dislike": 0, "favorite": 1579, "his_rank": 0, "like": 6915, "no_reprint": 0, "now_rank": 0, "reply": 4518, "share": 667, "view": 677596}
+{"aid": 49294511, "coin": 24, "video_copyright": 1, "danmaku": 16, "dislike": 0, "favorite": 5, "his_rank": 0, "like": 54, "no_reprint": 1, "now_rank": 0, "reply": 164, "share": 18, "view": 11408}
+{"aid": 45267754, "coin": 3335, "video_copyright": 1, "danmaku": 15862, "dislike": 0, "favorite": 1792, "his_rank": 0, "like": 6816, "no_reprint": 1, "now_rank": 0, "reply": 7097, "share": 577, "view": 705328}
+{"aid": 49134029, "coin": 881, "video_copyright": 1, "danmaku": 3839, "dislike": 0, "favorite": 1084, "his_rank": 0, "like": 4124, "no_reprint": 1, "now_rank": 0, "reply": 8249, "share": 1098, "view": 678711}
+{"aid": 37155710, "coin": 1008, "video_copyright": 1, "danmaku": 289, "dislike": 0, "favorite": 519, "his_rank": 0, "like": 2046, "no_reprint": 1, "now_rank": 0, "reply": 314, "share": 273, "view": 129337}
+{"aid": 23403922, "coin": 1155, "video_copyright": 1, "danmaku": 6682, "dislike": 0, "favorite": 950, "his_rank": 78, "like": 1438, "no_reprint": 1, "now_rank": 0, "reply": 5866, "share": 275, "view": 314809}
+{"aid": 47062726, "coin": 97, "video_copyright": 1, "danmaku": 635, "dislike": 0, "favorite": 63, "his_rank": 0, "like": 374, "no_reprint": 0, "now_rank": 0, "reply": 102, "share": 23, "view": 22010}
+{"aid": 6442076, "coin": 1823, "video_copyright": 2, "danmaku": 11152, "dislike": 0, "favorite": 25772, "his_rank": 0, "like": 4850, "no_reprint": 0, "now_rank": 0, "reply": 997, "share": 11047, "view": 784175}

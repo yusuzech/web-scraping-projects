@@ -2,7 +2,12 @@
 
 For details of each project, please see them in the folder under this repository. Contact me with my email listed on github if you have any issues.
 
-## [niconico.jp](http://www.nicovideo.jp/) danmaku auto collection
+## Scrapy Projects
+
+
+## R Projects
+
+### [niconico.jp danmaku auto collection](R Projects/niconico)
 
 Niconico(ニコニコ) is one of the most popular Japanese video sharing service on the web with live commenting(danmaku) feature.
 
@@ -11,7 +16,7 @@ In this project, I build a script to automatically collect corresponding danmaku
 
 ニコニコ弾幕Webスクレイピング.
 
-## [bilibili.com](https://www.bilibili.com/) danmaku auto collection
+### [bilibili.com danmaku auto collection](R Projects/bilibili)
 
 Bilibili is the biggest video sharing website themed around animation, comic, and game (ACG) in China with more than 80 million registered users.
 
@@ -20,7 +25,7 @@ In this project, I build a script which can scrape the danmaku(also known as bul
 
 bilili弹幕数据获取脚本/爬虫：给定bilibili视频的av号，脚本将返回对应视频的所有弹幕，详情请见文件夹。
 
-## [zhihu.com](https://www.zhihu.com) follower/followee data scraping
+### [zhihu.com follower/followee data scraping](R Projects/douyu)
 
 Zhihu(知乎) is a Chinese question-and-answer website where questions are created, answered, edited and organized by the community of its users. 
 
@@ -29,7 +34,7 @@ This project scrapes zhihu's user data and following-follower data. The workflow
 
 知乎爬虫/数据获取脚本，给定一个知乎话题，自动获取话题下相关问题，回答和用户信息，以此获取对应用户的关注者与被关注者信息。
 
-## [adnmb.com](http://adnmb.com) thread data collection
+### [adnmb.com thread data collection](R Projects/adnmb)
 
 adnmb(A岛) is a 4-chan/2ch-like anonymous forum(anonymous to other users, require registration to post) with heathlier content. Though it's small forum, it actually leads in creating new content for Chinese websites. Many memes created in adnmb are used months or years later by the general public in China.
 
@@ -38,7 +43,7 @@ The projects scrape adnmb's all thread content in most recent month. It also gen
 
 A岛爬虫/串内信息获取， 运行后将自动获取近一个月内所有串内的信息。
 
-## function
+### function
 
 General helpful functions that facilitate web-scraping process. Those functions are imported from [this repo](https://github.com/yusuzech/r-web-scraping-template).  
 Those functions help in :    
@@ -47,7 +52,7 @@ Those functions help in :
 * auto-retry failed requests
 * store all failed requests and retry them after all other tasks are completed
 
-## Utility
+### Utility
 
 Utility functions/scripts such as:  
 
