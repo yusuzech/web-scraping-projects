@@ -7,6 +7,9 @@ from bilibili.items import CommentItem
 from scrapy.exporters import JsonLinesItemExporter
 import datetime
 import os
+import pandas as pd
+
+import logging
 # Define your item pipelines here
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
@@ -52,3 +55,19 @@ class BilibiliPipeline(object):
         if isinstance(item,CommentItem):
             self.commentexporter.export_item(item)
             return item
+    
+    def close_spider(self, spider):
+        #write data to a single jl file after scraping is complete
+        self.acvfile.close()
+        self.videofile.close()
+        self.danmakufile.close()
+        self.commentfile.close()
+        acv = pd.read_json(self.datapath + "acv.jl",lines=True,encoding="utf-8")
+        video = pd.read_json(self.datapath + "video.jl",lines=True,encoding="utf-8")
+        danmaku = pd.read_json(self.datapath + "danmaku.jl",lines=True,encoding="utf-8")
+        comment = pd.read_json(self.datapath + "comment.jl",lines=True,encoding="utf-8")
+        df = acv.merge(video,on="aid",how="left").\
+                merge(danmaku,on="cid",how="left").\
+                merge(comment,on="aid",how="left")
+        logging.info("Merge data and write to 'data.jl'")
+        df.to_json(self.datapath+"data.jl",orient='records',lines=True)

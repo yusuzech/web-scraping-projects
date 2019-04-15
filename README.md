@@ -4,6 +4,11 @@ For details of each project, please see them in the folder under this repository
 
 ## Scrapy Projects
 
+### [bilibili.com Video Information Crawler](Scrapy Projects/bilibili)
+Project Description:
+Given a key word, get all relevant information(video, danmaku and comments) using [search.bilibili.com](https://search.bilibili.com/).
+
+提供关键词后，提取B站上所有相关视频，弹幕及评论信息。
 
 ## R Projects
 

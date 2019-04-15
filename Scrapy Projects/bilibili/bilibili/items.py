@@ -20,7 +20,7 @@ class VideoItem(scrapy.Item):
     aid   = scrapy.Field()
     coin = scrapy.Field()
     video_copyright = scrapy.Field()
-    danmaku = scrapy.Field()
+    total_danmaku = scrapy.Field()
     dislike = scrapy.Field()
     favorite = scrapy.Field()
     his_rank = scrapy.Field()
@@ -36,3 +36,4 @@ class DanmakuItem(scrapy.Item):
 class CommentItem(scrapy.Item):
     aid = scrapy.Field()
     hot_comment = scrapy.Field()
+    replies = scrapy.Field()

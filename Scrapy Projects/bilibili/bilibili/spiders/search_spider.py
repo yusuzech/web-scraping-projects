@@ -8,6 +8,7 @@ from bilibili.items import VideoItem
 from bilibili.items import DanmakuItem
 from bilibili.items import CommentItem
 
+import custom_functions
 
 class SearchSpiderSpider(scrapy.Spider):
     name = 'search_spider'
@@ -64,7 +65,7 @@ class SearchSpiderSpider(scrapy.Spider):
         item["aid"] = data["aid"]
         item["coin"] = data["coin"]
         item["video_copyright"] = data["copyright"]
-        item["danmaku"] = data["danmaku"]
+        item["total_danmaku"] = data["danmaku"]
         item["dislike"] = data["dislike"]
         item["favorite"] = data["favorite"]
         item["his_rank"] = data["his_rank"]
@@ -87,20 +88,13 @@ class SearchSpiderSpider(scrapy.Spider):
         item["aid"] = re.findall("[0-9]+$",response.url)[0]
 
         data = json.loads(response.text)
-        #parsing data in nested structure        
-        hot_comment_nodes = data["data"]["hots"]
-        hot_comment = [x["content"]["message"] for x in hot_comment_nodes]
-        hot_reply = []
-        for x in hot_comment_nodes:
-            replies = x["replies"]
-            if isinstance(replies,list):
-                this_reply = [y["content"]["message"] for y in replies]
-            else:
-                this_reply = [""]
-            hot_reply.append(this_reply)
-        output = []
-        for i in range(len(hot_comment)):
-            output.append({"hot_comment":hot_comment[i],
-                "hot_reply":hot_reply[i]})
-        item["hot_comment"] = output
+        #if hot comments exist
+        if data["data"]["hots"]:
+            current_data = data["data"]["hots"]
+            hot_comment = list(custom_functions.dict_find_all("message",current_data))
+            item["hot_comment"] = hot_comment
+        if data["data"]["replies"]:
+            current_data = data["data"]["replies"]
+            replies = list(custom_functions.dict_find_all("message",current_data))
+            item["replies"] = replies
         yield item
