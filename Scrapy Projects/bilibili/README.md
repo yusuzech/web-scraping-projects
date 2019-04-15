@@ -4,7 +4,9 @@
 
 ## Project Description
 
-Wrote spiders to extract information from bilibili.com
+Wrote a series of spiders to extract information from bilibili.com
+
+一些列获取bilibili上视频相关信息的爬虫。
 
 
 
