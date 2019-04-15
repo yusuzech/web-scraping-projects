@@ -1,5 +1,5 @@
 # usage_analysis_adnmb
-This repo(moved from [here](https://github.com/yusuzech/usage_analysis_adnmb)) is currently in use for creating analysis for adnmb.com. A sample analysis(in Chinese) can be viewed [here](https://github.com/yusuzech/web-scraping-projects/blob/master/adnmb/analysis/adnmb_analysis.pdf): The analysis covered top threads in each section and top threads in recent month. It also shows user activity on weekdays and hours of a day.
+This repo(moved from [here](https://github.com/yusuzech/usage_analysis_adnmb)) is currently in use for creating analysis for adnmb.com. A sample analysis(in Chinese) can be viewed [here](https://github.com/yusuzech/web-scraping-projects/blob/master/adnmb/analysis/adnmb_analysis.pdf)(open the [html file](https://github.com/yusuzech/web-scraping-projects/blob/master/adnmb/analysis/tnmb_analysis.html) with browser for interactivity): The analysis covered top threads in each section and top threads in recent month. It also shows user activity on weekdays and hours of a day.
 
 
 2018-04-20 update
