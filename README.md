@@ -2,6 +2,22 @@
 
 For details of each project, please see them in the folder under this repository. Contact me with my email listed on github if you have any issues.
 
+
+
+## Web Scraping Topics
+
+### [Recognizing Captcha]()
+
+Description:
+
+Studied on using OCR or Text Recognition APIs to solve Captchas. OCR or APIs services are viable choices depending on how the captchas are designed. 
+
+研究了用OCR或文字识别API识别验证码的可能是。按照验证码设计的复杂程度，这两种方法都是理论上可行的，其中Google Cloud Vision API准确率更高。 针对简单的验证码，这两种方法都不错。但万一遇上难一些的验证码，可能就需要用上人工打码或机器学习了。
+
+
+
+
+
 ## Scrapy Projects
 ### [bilibili.com Video Information Crawler](https://github.com/yusuzech/web-scraping-projects/tree/master/Scrapy%20Projects/bilibili)
 Project Description:
