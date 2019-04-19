@@ -6,7 +6,7 @@ For details of each project, please see them in the folder under this repository
 
 ## Web Scraping Topics
 
-### [Recognizing Captcha]()
+### [Recognizing Captcha](https://github.com/yusuzech/web-scraping-projects/blob/master/Web%20Scraping%20Topics/Recognizing%20Captcha/solving%20captcha%20with%20ocr.ipynb)
 
 Description:
 
